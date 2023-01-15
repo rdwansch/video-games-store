@@ -1,3 +1,3 @@
-const baseUrl = `https://api.rawg.io/api`;
+const baseUrl = `http://localhost:3000`;
 
-export const getAllGames = `${baseUrl}/platforms?key=${process.env.NEXT_PUBLIC_API}`;
+export const getAllGames = `${baseUrl}/api/games`;
