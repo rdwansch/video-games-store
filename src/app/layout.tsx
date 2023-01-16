@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="bg-[#161616]">
+      <body className="min-h-screen bg-[#161616]">
         <Nav />
         <div>{children}</div>
       </body>

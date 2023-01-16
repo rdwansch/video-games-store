@@ -1,3 +1,9 @@
+type Property = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
 export type Game = {
   id: number;
   slug: string;
@@ -16,6 +22,8 @@ export type Game = {
   playtime: number;
   suggestions_count: number;
   updated: string;
-  esrb_rating: {};
+  esrb_rating: Property;
   platforms: [];
+  parent_platforms: [{ platform: Property }];
+  genres: Property[];
 };
