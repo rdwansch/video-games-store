@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="container">
+      <div className="container mx-auto">
         <h1 className="font-sans text-5xl font-bold text-white">New for You</h1>
 
         <div className="mt-10">

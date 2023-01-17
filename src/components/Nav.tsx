@@ -7,7 +7,7 @@ export default function Nav() {
   const [searchInput, setSearchInput] = useState('');
 
   return (
-    <div className="container flex items-center justify-between">
+    <div className="container mx-auto flex items-center justify-between">
       <div className="text-xl text-white">
         <Link className="text-gray-300 hover:text-white" href="/">
           VzStore

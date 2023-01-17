@@ -4,6 +4,18 @@ type Property = {
   slug: string;
 };
 
+type Platform = {
+  id: number;
+  name: string;
+  slug: 'pc' | 'playstation' | 'xbox' | 'nintendo' | 'android' | 'mac' | 'linux';
+};
+
+type Ratings = {
+  id: number;
+  title: 'exceptional' | 'recommended' | 'meh' | 'skip';
+  count: number;
+};
+
 export type Game = {
   id: number;
   slug: string;
@@ -13,7 +25,7 @@ export type Game = {
   background_image: string;
   rating: number;
   rating_top: number;
-  ratings: {};
+  ratings: Ratings[];
   ratings_count: number;
   reviews_text_count: string;
   added: number;
@@ -24,6 +36,6 @@ export type Game = {
   updated: string;
   esrb_rating: Property;
   platforms: [];
-  parent_platforms: [{ platform: Property }];
+  parent_platforms: [{ platform: Platform }];
   genres: Property[];
 };

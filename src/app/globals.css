@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
+/* .container {
   @apply mx-auto w-[1200px] max-w-full px-5;
-}
+} */
