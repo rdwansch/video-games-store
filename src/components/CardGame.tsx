@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Game } from '~/types/Games.type';
 
 export default function CardGame({ results }: { results: Game[] }) {
+  const r = results[0].rating.toFixed(1);
   return (
     <>
       <div className="columns-1 gap-10 sm:columns-2 md:columns-3 lg:columns-4">
@@ -20,7 +22,10 @@ export default function CardGame({ results }: { results: Game[] }) {
                 className="h-48 lg:w-[340px]"
                 title={game.name}
               ></div>
-              <h2 className="text-3xl text-white">{game.name}</h2>
+              <div className="mt-2"></div>
+              <Link href={`/games/${game.id}`}>
+                <h2 className="text-2xl text-white hover:opacity-50">{game.name}</h2>
+              </Link>
               <div className="flex justify-between">
                 <div>
                   <p className="text-gray-400">{game.esrb_rating.name}</p>
@@ -39,6 +44,7 @@ export default function CardGame({ results }: { results: Game[] }) {
                     ))}
                   </div>
                   <div className="flex justify-end py-3  text-white">
+                    {/* exceptional | recommended | meh | skip */}
                     <Image
                       src={`/icons/${game.ratings[0].title}.png`}
                       width={30}
@@ -58,7 +64,7 @@ export default function CardGame({ results }: { results: Game[] }) {
 
                   <div className="flex justify-between text-gray-400">
                     <span>Owned:</span>
-                    <span>{game.added} player</span>
+                    <span>{game.added} players</span>
                   </div>
 
                   <div className="flex justify-between text-gray-400">

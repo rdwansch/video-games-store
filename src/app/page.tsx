@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <div className="container mx-auto">
-        <h1 className="font-sans text-5xl font-bold text-white">New for You</h1>
+        <h1 className="font-sans text-3xl font-bold text-white">New for You</h1>
 
         <div className="mt-10">
           {isLoading && <h2 className="text-2xl text-white">LOADING</h2>}

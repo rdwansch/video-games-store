@@ -38,4 +38,10 @@ export type Game = {
   platforms: [];
   parent_platforms: [{ platform: Platform }];
   genres: Property[];
+  screen_shot?: [
+    {
+      image: string;
+      hidden: false;
+    }
+  ];
 };
