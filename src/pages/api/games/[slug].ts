@@ -5,7 +5,6 @@ const key = process.env.API_KEY;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    console.log('RAN');
     const res_detail = await await fetch(`${baseUrl}/api/games/${req.query.slug}?key=${key}`).then(res => res.json());
     const res_screenshot = await await fetch(`${baseUrl}/api/games/${req.query.slug}/screenshots?key=${key}`).then(res =>
       res.json()

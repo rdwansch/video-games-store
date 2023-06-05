@@ -36,12 +36,14 @@ export type Game = {
   updated: string;
   esrb_rating: Property;
   platforms: [];
-  parent_platforms: [{ platform: Platform }];
+  parent_platforms?: [{ platform: Platform }];
   genres: Property[];
+  description?: string;
   screen_shot?: [
     {
       image: string;
       hidden: false;
     }
   ];
+  tags?: [{ id: number; name: string; slug: string }];
 };

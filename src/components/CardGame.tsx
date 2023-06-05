@@ -6,7 +6,7 @@ export default function CardGame({ results }: { results: Game[] }) {
   const r = results[0].rating.toFixed(1);
   return (
     <>
-      <div className="columns-1 gap-10 sm:columns-2 md:columns-3 lg:columns-4">
+      <div className="mx-auto flex flex-wrap items-center justify-center gap-5">
         {results.map(game => (
           <div
             className="group flex min-h-fit break-inside-avoid items-center justify-center rounded-xl p-4 transition hover:scale-105 group-hover:relative lg:w-[373px]"
@@ -19,7 +19,7 @@ export default function CardGame({ results }: { results: Game[] }) {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center center',
                 }}
-                className="h-48 lg:w-[340px]"
+                className="h-48 w-[340px] max-w-full"
                 title={game.name}
               ></div>
               <div className="mt-2"></div>
@@ -28,20 +28,22 @@ export default function CardGame({ results }: { results: Game[] }) {
               </Link>
               <div className="flex justify-between">
                 <div>
-                  <p className="text-gray-400">{game.esrb_rating.name}</p>
+                  <p className="text-gray-400">{game?.esrb_rating?.name ?? 'N/A'}</p>
                 </div>
                 <div className="max-w-[70%]">
                   <div className="flex items-center justify-end gap-2 text-white">
-                    {game.parent_platforms.map(({ platform: { slug, name } }, idx) => (
-                      <Image
-                        src={`/icons/${slug}.png`}
-                        key={slug}
-                        alt={name}
-                        width={slug == 'nintendo' ? 70 : 15}
-                        height={1}
-                        title={name}
-                      />
-                    ))}
+                    {game.parent_platforms
+                      ? game.parent_platforms.map(({ platform: { slug, name } }, idx) => (
+                          <Image
+                            src={`/icons/${slug}.png`}
+                            key={slug}
+                            alt={name}
+                            width={slug == 'nintendo' ? 70 : 15}
+                            height={1}
+                            title={name}
+                          />
+                        ))
+                      : 'N/A'}
                   </div>
                   <div className="flex justify-end py-3  text-white">
                     {/* exceptional | recommended | meh | skip */}
@@ -55,7 +57,7 @@ export default function CardGame({ results }: { results: Game[] }) {
                   </div>
                 </div>
               </div>
-              <div className="absolute left-0 right-0 z-50 mx-auto hidden  rounded-b-lg bg-[#313131] px-3 py-3 group-hover:block lg:w-[364px]">
+              <div className="absolute left-0 right-0 z-50 mx-auto hidden w-[364px] rounded-b-lg bg-[#313131] px-3 py-3 lg:group-hover:block">
                 <div className="divide-y divide-slate-400/[.24] text-sm">
                   <div className="flex justify-between text-gray-400">
                     <span>Released:</span>

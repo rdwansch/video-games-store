@@ -5,7 +5,14 @@ const key = process.env.API_KEY;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const response = await fetch(`${baseUrl}/api/games?key=${key}`);
+    let url = `${baseUrl}/api/games?key=${key}&page=${req.query.page}`;
+
+    if (req.query.search) {
+      url += `&search=${req.query.search}`;
+    }
+
+    // console.log('FETCH', url);
+    const response = await fetch(url);
     const data = await response.json();
 
     res.status(200).json({ ...data });
