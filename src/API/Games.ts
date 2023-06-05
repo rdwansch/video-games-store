@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:3000`;
+import 'dotenv/config';
 
-export const getAllGames = (page: string) => `${baseUrl}/api/games?page=${page}`;
-export const getDetailGame = (id: string) => `${baseUrl}/api/games/${id}`;
+export const getAllGames = (page: string) => `/api/games?page=${page}`;
+export const getDetailGame = (id: string) => `/api/games/${id}`;
